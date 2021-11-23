@@ -1,10 +1,17 @@
 function receivesAFunction(callback) {
-    callback();
+    return callback();
 }
 
+receivesAFunction(function () {
+    2 + 2;
+});
 
 
-function returnsAnAnonymousFunction (cb) {
-    return cb;
+const returnsANamedFunction = function() {
+    return receivesAFunction;
 }
-returnsAnAnonymousFunction(function () { return 4 + 5; });
+
+function returnsAnAnonymousFunction () {
+    return function() {returnsANamedFunction}
+}
+    
